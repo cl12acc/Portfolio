@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./js-project.css">
+    <title>JavaScript Project</title>
+</head>
+<body>
+
+<div id="cursor"></div>
+
+<div class="random-change" id="randomBg">
+    <div id="container">
+        <div id="digital-clock">
+            <div id="clock"></div>
+            <div id="date"></div>
+        </div>
+        
+        <div id="weather-API">
+            <div id="search">
+                <input type="text" name='weather' placeholder="Enter city name" >
+                <button><i class="fa-solid fa-magnifying-glass-location fa-2xl"></i></button>
+            </div>
+
+            <div id="weather">
+                <h1 id="city">London</h1>
+                <div class="details">
+                <div class="col">
+                <img src="./Images/cloudy.png" id="weather-icon" alt="weather icon">
+                </div>
+                <div class="col2">
+                <h2 id="temp">22℃</h2>
+                <h3 id="min-temp">22℃</h3>
+                </div>
+                </div>
+                <div class="details2">
+                    <div class="col">
+                        <img src="./Images/water.png" alt="">
+                        <div>
+                            <p id="humidity">50%</p>
+                            <p>Humidity</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="./Images/wind.png" alt="">
+                        <div>
+                            <p id="wind">15 m/s</p>
+                            <p>Wind Speed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="https://kit.fontawesome.com/3d594c44f9.js" crossorigin="anonymous"></script>
+    <script src="./js-project.js"></script>
+</body>
+</html>

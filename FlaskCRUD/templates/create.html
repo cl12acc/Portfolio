@@ -1,0 +1,48 @@
+{% extends 'master.html' %}
+{% include 'header.html' %}
+
+{% block title %} Home {% endblock %}
+ 
+ 
+ 
+{% block body %}
+
+<div class="container">
+    <form action='' method = "POST">
+    <table class="table">
+        <tr>
+            <td>Title</td>
+            <td><input type = "text" name = "title" class="form-control" /></td>
+        </tr>
+
+        <tr>
+            <td>Year released</td>
+            <td><input type = "text" name = "yearReleased" class="form-control" /></td>
+        </tr>
+
+        <tr>
+            <td>Rating</td>
+            <td><input type = "text" name = "rating" class="form-control" /></td>
+        </tr>
+
+        <tr>
+            <td>Duration</td>
+            <td><input type = "text" name = "duration" class="form-control" /></td>
+        </tr>
+
+        <tr>
+            <td>Genre</td>
+            <td><input type = "text" name = "genre" class="form-control" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="Submit" value="submit" class="btn btn-warning">
+            </td>
+           
+        </tr>
+    </table>
+    </form>
+</div>
+
+{% endblock %}

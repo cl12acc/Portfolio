@@ -24,7 +24,7 @@ body{
     box-sizing: border-box;
 }
 ul{
-    list-style: none;
+    list-style-position: inside;
 }
 .section{
     background: var(--bg-black-900);
@@ -32,12 +32,26 @@ ul{
     display: block;
     padding: 0 30px;
     opacity: 1;
-}
-.hidden{
-    display: none !important;
+    left: 270px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .main-content{
     padding-left: 270px;
+}
+.section.back-section{
+    z-index: 1;
+}
+section.active{
+    z-index: 2;
+    opacity: 1;
+}
+.hidden{
+    display: none !important;
 }
 .padd-15{
     padding-left: 15px;
@@ -175,6 +189,9 @@ ul{
     display: inline-block;
     position: relative;
 }
+.aside .nav-toggler.open span{
+    background-color: transparent;
+}
 .aside .nav-toggler span::before{
     content: '';
     height: 2px;
@@ -184,6 +201,10 @@ ul{
     top: -6px;
     left: 0;
 }
+.aside .nav-toggler.open span::before{
+    transform: rotate(45deg);
+    top: 0;
+}
 .aside .nav-toggler span::after{
     content: '';
     height: 2px;
@@ -192,6 +213,10 @@ ul{
     position: absolute;
     top: 6px;
     left: 0;
+}
+.aside .nav-toggler.open span::after{
+    transform: rotate(-45deg);
+    top: 0;
 }
 .aside .nav{
     margin-top: 50px;
@@ -263,6 +288,7 @@ h3.my-profession{
     border-right: 10px solid var(--skin-color);
     right: -20px;
     bottom: -40px;
+    margin-right: 10px;
 }
 .home-img::before{
     content: '';
@@ -330,55 +356,8 @@ h3.my-profession{
     margin-top: 30px;
 }
 .about .about-content .personal-info .buttons .btn{
-    margin-right: 15px;
     margin-top: 15px;
 }
-
-
-/* skills */
-.skills .container{
-    padding-bottom: 40px;
-    
-}
-.skills{
-justify-content: center;
-    align-items: center;
-}
-.skills .skills-heading h2{
-    color: var(--text-black-900);
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-.skills .skills-item{
-    flex: 0 0 15%;
-    max-width: 15%;
-    margin-bottom: 30px;
-    text-align: center;
-}
-.skills .skills-item-inner{
-    border: 6px solid var(--bg-black-100);
-    border-radius: 10px;
-    overflow: hidden;
-}
-.skills .skills-item-inner .skills-icon{
-    display: inline-block;
-}
-.skills .skills-item-inner h2{
-    color: var(--skin-color);
-    font-weight: 900;
-    
-}
-.skills .skills-item-inner .skills-icon .fa-solid,
-.skills .skills-item-inner .skills-icon .fa-brands{
-    font-size: 100px;
-    color: var(--skin-color);
-}
-
-
-
-
-
-
 .about .about-content .education,
 .about .about-content .experience{
     flex: 0 0 50%;
@@ -422,6 +401,9 @@ justify-content: center;
     text-align: justify;
     color: var(--text-black-900);
 }
+.about .about-content .timeline .timeline-text ul{
+    list-style: circle;
+}
 .about .about-content .timeline .timeline-date{
     font-weight: 400;
     font-size: 14px;
@@ -451,6 +433,44 @@ justify-content: center;
     top: 0;
     border-radius: 50%;
     background-color: var(--skin-color);
+}
+/* skills */
+.skills .container{
+    padding-bottom: 40px;
+    
+}
+.skills{
+justify-content: center;
+    align-items: center;
+}
+.skills .skills-item{
+    flex: 0 0 15%;
+    max-width: 15%;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.skills .skills-heading h2{
+    color: var(--text-black-900);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.skills .skills-item-inner{
+    border: 6px solid var(--bg-black-100);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.skills .skills-item-inner .skills-icon{
+    display: inline-block;
+}
+.skills .skills-item-inner h2{
+    color: var(--skin-color);
+    font-weight: 900;
+    
+}
+.skills .skills-item-inner .skills-icon .fa-solid,
+.skills .skills-item-inner .skills-icon .fa-brands{
+    font-size: 100px;
+    color: var(--skin-color);
 }
 /* portfolio */
 .portfolio .container{
@@ -555,16 +575,43 @@ justify-content: center;
     height: 50px;
     padding: 10;
 }
+@media (max-width:1360px){
+    .skills .skills-item{
+        flex: 0 0 33%;
+        max-width: 26%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+}
 @media (max-width:1199px){
+    .section .container{
+        padding-top: 70px;
+    }
     .aside{
         left: -270px;
     }
-    .main-content{
-        padding-left: 0;
+    .aside.open{
+        left: 0;
+    }
+    .aside .nav-toggler{
+        display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggler.open{
+        left: 300px;
+    }
+    .section{
+        left: 0;
+    }
+    .section.open{
+        left: 270px;
     }
     .about .about-content .personal-info .info-item p span{
         display: block;
         margin-left: 0;
+    }
+    .main-content{
+        padding-left: 0;
     }
 }
 @media (max-width:991px){
@@ -591,5 +638,19 @@ justify-content: center;
     .about .about-content .personal-info{
         flex: 0 0 100%;
         max-width: 100%;
+    }
+    .skills .skills-item{
+        flex: 0 0 50%;
+        max-width: 35%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+}
+@media (max-width:507px){
+    .skills .skills-item{
+        flex: 0 0 100%;
+        max-width: 55%;
+        margin-bottom: 30px;
+        text-align: center;
     }
 }

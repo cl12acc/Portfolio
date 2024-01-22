@@ -498,7 +498,23 @@ justify-content: center;
 }
 .portfolio .portfolio-item-inner .portfolio-img img{
     width: 100%;
+    display: flex;
+}
+.portfolio-item:hover .portfolio-description{
     display: block;
+}
+.portfolio-description{
+    text-align: center;
+    display: none;
+}
+.git-icon .fa-brands{
+    width: 40px;
+    display: block;
+    font-size: 30px;
+    color: var(--skin-color);
+}
+.git-icon .fa-brands:hover{
+    color:rgb(38, 184, 237) ;
 }
 /* contact */
 .contact-title{
